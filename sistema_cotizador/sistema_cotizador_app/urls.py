@@ -2,7 +2,7 @@
 
 from django.urls import path
 
-
+# importamos las vistas creadas en views.py
 from sistema_cotizador_app import views
 
 # declaro las urls indicando las funciones de las views dentro de Sistema_cotizador_app

@@ -19,7 +19,7 @@ from django.urls import path, include
 
 # las urls del proyecto y vinculo el urls de la aplicacion
 urlpatterns = [
-    path('administrador/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', include('sistema_cotizador_app.urls')),
     # path('sistema_cotizador_app/', include('sistema_cotizador_app.urls')), esto usar cuando se tiene varias aplicaciones dentro del proyecto
 ]
