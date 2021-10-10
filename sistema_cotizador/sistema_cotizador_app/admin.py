@@ -4,7 +4,8 @@ from django.contrib import admin
 # importando el modelo
 from sistema_cotizador_app.models import cliente
 from sistema_cotizador_app.models import producto_servicio
-
+from sistema_cotizador_app.models import cotizador_maestro
+from sistema_cotizador_app.models import cotizador_detalle
 # ModelAdmin que nos permite realizar cambios en el admin, heredando los valores a mostrar
 
 
@@ -21,6 +22,20 @@ class producto_servicioAdmin(admin.ModelAdmin):
     date_hierarchy = ("created")
 
 
+class cotizador_maestroAdmin(admin.ModelAdmin):
+    list_display = ("nombre_proyecto", "id_usuario")
+    search_fields = ("nombre_proyecto", "id_usuario")
+    list_filter = ("id_usuario", "id_cliente",)
+    date_hierarchy = ("created")
+
+
+class cotizador_detalleAdmin(admin.ModelAdmin):
+    list_display = ("id_cotizador_maestro", "producto_detalle")
+    #search_fields = ("id_cotizador_maestro", "id_usuario")
+
+
 # se agrega los registros de la clase cliente y la nueva clase clienteAdmin
 admin.site.register(cliente, clienteAdmin)
 admin.site.register(producto_servicio, producto_servicioAdmin)
+admin.site.register(cotizador_maestro, cotizador_maestroAdmin)
+admin.site.register(cotizador_detalle, cotizador_detalleAdmin)
